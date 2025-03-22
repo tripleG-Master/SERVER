@@ -1,0 +1,59 @@
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h1 class="display-4">Pokémon Collection</h1>
+            <p class="lead">Explore the world of Pokémon!</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        {{#each pokemons}}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 pokemon-card">
+                <img src="{{sprites.other.dream_world.front_default}}" 
+                     class="card-img-top p-3" 
+                     alt="{{name}}"
+                     loading="lazy">
+                <div class="card-body">
+                    <h5 class="card-title text-capitalize">{{name}}</h5>
+                    <div class="d-flex gap-2 mb-2">
+                        {{#each types}}
+                        <span class="badge bg-primary">{{this.type.name}}</span>
+                        {{/each}}
+                    </div>
+                    <div class="pokemon-stats small">
+                        <div>HP: {{stats.[0].base_stat}}</div>
+                        <div>Attack: {{stats.[1].base_stat}}</div>
+                        <div>Defense: {{stats.[2].base_stat}}</div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a href="/pokemon/{{id}}" class="btn btn-outline-primary w-100">View Details</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<style>
+.pokemon-card {
+    transition: transform 0.2s;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.pokemon-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.pokemon-card img {
+    height: 200px;
+    object-fit: contain;
+}
+
+.pokemon-stats {
+    color: #666;
+}
+</style>

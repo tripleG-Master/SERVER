@@ -8,7 +8,8 @@ import { create } from 'express-handlebars';
 import { exec } from 'child_process';
 
 //RUTAS
-import digimonRoute from './routes/digimon.route.js';
+import digimonRoutes from './routes/digimon.route.js';
+import pokemonRoutes from './routes/pokemon.route.js'
 
 //CONFIGURACION INICIAL DE LOS ELEMENTOS
 dotenv.config();
@@ -46,7 +47,9 @@ app.use(delayMiddleware);
 app.use(express.static('public'));
 
 //APLICAMOS LAS RUTAS
-app.use('/digimon', digimonRoute);
+app.use('/digimon', digimonRoutes);
+
+app.use("/pokemon", pokemonRoutes);
 
 
 //INICIALIZAMOS EL SERVIDOR

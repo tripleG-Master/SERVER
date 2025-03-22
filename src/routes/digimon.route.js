@@ -1,5 +1,5 @@
 import express from "express";
-import DigimonController from "../controllers/digimon.controller.js";
+import DigimonController from "../controllers/digimon/digimon.controller.js";
 const router = express.Router();
 
 //rutas frontend
