@@ -1,0 +1,12 @@
+<div id="principal" class="container w-100 m-auto">
+  <div class="container album p-2 mx-2">
+    <div id="random-digimon" class="row justify-content-center">
+      <!-- inicio de las card -->
+      {{#each digimons as |digimon| }}
+      
+        {{> digimon/digimonCards digimon=digimon}}
+      {{/each}}
+      <!-- fin de las card -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container w-100 m-auto">
+  <div class="row my-2">
+    <div class="col-12 col-md-8 mx-auto">
+      <form class="d-flex" role="search" id="search-form">
+        <input class="form-control me-2" type="search" id="search-input" placeholder="Search by name, attributes, "
+          aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+
+    searchForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const searchTerm = searchInput.value.trim();
+      if (!searchTerm) {
+        alert("Please enter a search query");
+        return;
+      }
+
+      window.location.href = `/digimon/search?query=${encodeURIComponent(searchTerm)}`;
+    });
+  });
+</script>

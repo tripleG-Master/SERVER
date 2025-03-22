@@ -1,0 +1,113 @@
+
+<div class="card mb-3 mx-auto p-3" style="max-width: 1020px;" >
+    <div class="container-fluid">
+
+        <div class="row my-1">
+            <h2 class="card-title display-1 text-center">{{digimon.name}}</h2>
+            <hr>
+            <h6 class="card-subtitle mb-2 text-center text-muted">ID: {{digimon.id}}</h6>
+        </div>
+
+        <div class="col-12">
+            <img src='{{digimon.image}}' class="object-fit-contain" 
+                alt="Digimon no image available."
+                style="clear:left;float:left;margin-right:10px;min-height:250px;max-height:500px"
+            />
+            <div class="card-body fs-3">
+                <small class="card-subtitle text-muted">Release Date: {{digimon.releaseDate}}</small>
+                <p class="card-text">
+                    xAntibody: {{digimon.xAntibody}}
+                </p>
+                <p class="card-text fs-3">
+                    {{digimon.descriptions.description}}
+                </p>
+                <small class="card-subtitle text-muted">Description referenced by: {{digimon.descriptions.origin}}</small>
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <hr>
+            <h5 class="display-5 text-center">LEVELS</h5>
+            <div class="d-flex justify-content-evenly g-2">
+                {{#each digimon.levels as |level|}}
+                <span class="badge rounded-pills bg-primary fs-3">
+                    {{level.level}}
+                </span>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <hr>
+            <h5 class="display-5 text-center">FIELDS</h5>
+            <div class="d-flex justify-content-evenly g-2">
+            {{#each digimon.fields as |field|}}
+                <div class="d-flex flex-column">
+                    <img class="img-thumbnail mx-auto" 
+                        src="{{field.image}}" 
+                        style="max-height:64px;max-width:64px"
+                    >
+                    <small class="fs-3">{{field.field}}</small>
+                </div>
+            {{/each}}
+            </div>
+        </div>
+
+        
+        <div class="row my-2">
+            <hr>
+            <h5 class="display-5 text-center">ATTRIBUTES</h5>
+            <div class="d-flex flex-wrap justify-content-evenly g-3">
+                {{#each digimon.attributes as |attribute|}}
+                    <span class="badge bg-warning m-2 p-1 fs-3" >{{attribute.attribute}}</span>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <hr>
+            <h5 class="display-5 text-center">SKILLS</h5>
+            <div class="d-flex flex-wrap justify-content-evenly g-3">
+                {{#each digimon.skills as |skill|}}
+                    <span class="badge bg-success m-2 p-1 fs-3" data-bs-toggle="tooltip" data-bs-title="{{skill.description}}">{{skill.skill}}</span>
+                {{/each}}
+            </div>
+        </div>
+        
+        
+        <div class="row my-2">
+            <hr>
+            <h5 class="display-5 text-center">PRIOR EVOLUTIONS</h5>
+            <div class="d-flex flex-wrap justify-content-evenly g-3">
+                {{#each digimon.priorEvolutions as |evolution|}}
+                    <a href="{{evolution.url}}" class="text-decoration-none m-1">
+                        <img class="img-thumbnail object-fit-contain" 
+                            style="max-height:128px" 
+                            src="{{evolution.image}}" 
+                            data-bs-toggle="tooltip" 
+                            data-bs-title="{{evolution.digimon}}">
+                    </a>
+                {{/each}}
+            </div>
+        </div>
+        
+        <div class="row my-2">
+            <hr>
+            <h5 class="display-5 text-center">NEXT EVOLUTIONS</h5>
+            <div class="d-flex flex-wrap justify-content-evenly g-3">
+                {{#each digimon.nextEvolutions as |evolution|}}
+                    <a href="{{evolution.url}}" class="text-decoration-none m-1">
+                        <span data-bs-toggle="tooltip" 
+                            data-bs-title="{{evolution.digimon}}">
+                        <img class="img-thumbnail object-fit-contain" 
+                            style="max-height:128px"
+                            src="{{evolution.image}}" 
+                            >
+                        </span>
+                    </a>
+                {{/each}}
+            </div>
+        </div>
+        
+    </div>
+</div>

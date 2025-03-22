@@ -1,0 +1,14 @@
+
+<div id="digimon-{{digimon.id}}" class="card card-digimon py-2 px-1 m-2 puff-in-center border-0">
+  <img class="img-responsive" src="{{digimon.image}}" alt="Card image cap">
+  <div class="card-img-overlay m-0 p-0">
+    <a href="http://localhost:3000/digimon/{{digimon.id}}" class="text-decoration-none h-100">
+      <div class="container text-center text-black bg-light position-absolute bottom-50" style="--bs-bg-opacity: .7;">
+        <small class="card-subtitle mb-2 text-muted">#{{digimon.id}}</small>
+        <h4 class="card-title display-6 fs-3 text-break">
+          {{digimon.name}}
+        </h4>
+      </div>
+    </a>
+  </div>
+</div>

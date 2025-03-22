@@ -1,0 +1,17 @@
+<div id="principal" class="container w-100 m-auto">
+  <div class="container album p-2 mx-2">
+        <div id="search-results" class="row justify-content-center">
+            {{#if digimons}}
+                {{#each digimons as |digimon| }}
+                    {{> digimon/digimonCards digimon=digimon }}
+                {{/each}}
+            {{else}}
+                <div class="col-12 text-center">
+                    <h3>No Digimon found</h3>
+                    <p>Try searching for a different name</p>
+                </div>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
